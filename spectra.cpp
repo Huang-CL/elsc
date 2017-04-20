@@ -67,7 +67,7 @@ void spectra::reduce_sum(MPI::Intracomm worker_comm, int rank)
 
   if(myid==rank)
   {
-    for(int i=0;i<1;i++)
+    for(int i=0;i<nv;i++)
     {
       worker_comm.Reduce(MPI::IN_PLACE, bbin[i],Nbin+2,MPI::DOUBLE,MPI::SUM,rank);
       worker_comm.Reduce(MPI::IN_PLACE, nbin[i],Nbin+2,MPI::DOUBLE,MPI::SUM,rank);
@@ -77,7 +77,7 @@ void spectra::reduce_sum(MPI::Intracomm worker_comm, int rank)
   }
   else
   {
-    for(int i=0;i<1;i++)
+    for(int i=0;i<nv;i++)
     {
       worker_comm.Reduce(bbin[i], bbin[i],Nbin+2,MPI::DOUBLE,MPI::SUM,rank);
       worker_comm.Reduce(nbin[i], nbin[i],Nbin+2,MPI::DOUBLE,MPI::SUM,rank);

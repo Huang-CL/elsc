@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
   MPI::Intracomm worker_comm;
   MPI::Init();
   int size = MPI::COMM_WORLD.Get_size();
-  int myid = MPI::COMM_WORLD.Get_rank();
+  //int myid = MPI::COMM_WORLD.Get_rank();
   
   //Build a worker communicator in order to use MPI::Reduce
   world_group = MPI::COMM_WORLD.Get_group();
